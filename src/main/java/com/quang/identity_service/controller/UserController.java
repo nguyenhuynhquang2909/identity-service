@@ -1,5 +1,6 @@
 package com.quang.identity_service.controller;
 
+import com.quang.identity_service.dto.request.ApiResponse;
 import com.quang.identity_service.dto.request.UserCreationRequest;
 import com.quang.identity_service.dto.request.UserUpdateRequest;
 import com.quang.identity_service.entity.User;
@@ -17,8 +18,11 @@ public class UserController {
     private UserService userService;
 
     @PostMapping()
-    User createUser(@RequestBody @Valid UserCreationRequest request) {
-        return userService.createRequest(request);
+    ApiResponse<User> createUser(@RequestBody @Valid UserCreationRequest request) {
+        ApiResponse<User> apiResponse = new ApiResponse<>();
+
+        apiResponse.setResult(userService.createUser(request));
+        return apiResponse;
     }
 
     @GetMapping()
