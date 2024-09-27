@@ -1,5 +1,6 @@
 package com.quang.identity_service.dto.request;
 
+import com.quang.identity_service.validator.DobConstraint;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -22,6 +23,7 @@ public class UserCreationRequest {
 
     String lastName;
 
+    @DobConstraint(min = 2, message = "INVALID_DOB")
     LocalDate dob;
 
 

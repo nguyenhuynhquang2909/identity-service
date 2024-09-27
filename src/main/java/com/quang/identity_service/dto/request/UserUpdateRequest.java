@@ -1,5 +1,6 @@
 package com.quang.identity_service.dto.request;
 
+import com.quang.identity_service.validator.DobConstraint;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -15,6 +16,7 @@ public class UserUpdateRequest { ;
      String password;
      String firstName;
      String lastName;
+     @DobConstraint(min = 2, message = "INVALID_DOB")
      LocalDate dob;
      List<String> roles;
 
