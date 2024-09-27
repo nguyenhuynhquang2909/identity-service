@@ -35,4 +35,5 @@ public class PermissionService {
     public void delete(String permission) {
         permissionRepository.deleteById(permission);
     }
+
 }
