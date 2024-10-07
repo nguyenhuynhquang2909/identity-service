@@ -46,7 +46,7 @@ public class UserService {
 //        user.setRoles(roles);
         return userMapper.toUserResponse(userRepository.save(user));
     }
-    @PreAuthorize("hasAuthority('APPROVE_POST   ')")
+    @PreAuthorize("hasAuthority('APPROVE_POST')")
     public List<UserResponse> getUsers() {
         log.info("In method get Users");
         return userRepository.findAll().stream()
